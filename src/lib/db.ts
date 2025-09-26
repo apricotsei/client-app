@@ -1,12 +1,12 @@
 import mysql from 'mysql2/promise';
 
 const dbConfig = {
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
-    port: parseInt(process.env.MYSQL_PORT || '3306', 10),
-    // TiDB Cloud接続のためのSSL設定
+    // ★ Vercelの環境変数名に合わせる
+    host: process.env.HOST,
+    user: process.env.USERNAME, // 'USERNAME' に注意
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE,
+    port: parseInt(process.env.PORT || '4000', 10), // TiDB Cloudは通常4000番ポート
     ssl: {
         minVersion: 'TLSv1.2',
         rejectUnauthorized: true
